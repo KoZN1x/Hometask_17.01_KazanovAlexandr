@@ -19,17 +19,24 @@ namespace Hometask_17._01_KazanovAlexandr
                 jsonSerializer.Serialize(stream, squad);
             }
 
-            string jsonPath = JsonFile(ListOfFiles("E:\\Programms\\Hometask_17.01_KazanovAlexandr\\Files"));
-            StreamReader streamReader = new StreamReader(jsonPath);
-            object? squad1 = jsonSerializer.Deserialize(streamReader, typeof(Squad));
-            streamReader.Dispose();
+            try
+            {
+                string jsonPath = JsonFile(ListOfFiles("E:\\Programms\\Hometask_17.01_KazanovAlexandr\\Files"));
+                StreamReader streamReader = new StreamReader(jsonPath);
+                object? squad1 = jsonSerializer.Deserialize(streamReader, typeof(Squad));
+                streamReader.Dispose();
 
 #pragma warning disable SYSLIB0011
-            using (Stream stream = new FileStream("squadName.bin", FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                formatter.Serialize(stream, squad1);
-            }
+                using (Stream stream = new FileStream("squadName.bin", FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    formatter.Serialize(stream, squad1);
+                }
 #pragma warning disable SYSLIB0011
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             static List<string> ListOfFiles(string path)
                 {
