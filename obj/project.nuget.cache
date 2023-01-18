@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SYFBN/TqaKe21bFan5FlR5UjnNIw4FuQaBkoSmmSOB6YQbBbQbzuDCxNwf5PcY5dy4CJvng577E63t/UeKwi9A==",
+  "success": true,
+  "projectFilePath": "E:\\Programms\\Hometask_17.01_KazanovAlexandr\\Hometask_17.01_KazanovAlexandr.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KoZN\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

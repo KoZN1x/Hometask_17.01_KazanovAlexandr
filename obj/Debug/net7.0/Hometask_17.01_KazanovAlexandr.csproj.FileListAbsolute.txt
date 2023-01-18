@@ -1,0 +1,17 @@
+E:\Programms\Hometask_17.01_KazanovAlexandr\bin\Debug\net7.0\Hometask_17.01_KazanovAlexandr.exe
+E:\Programms\Hometask_17.01_KazanovAlexandr\bin\Debug\net7.0\Hometask_17.01_KazanovAlexandr.deps.json
+E:\Programms\Hometask_17.01_KazanovAlexandr\bin\Debug\net7.0\Hometask_17.01_KazanovAlexandr.runtimeconfig.json
+E:\Programms\Hometask_17.01_KazanovAlexandr\bin\Debug\net7.0\Hometask_17.01_KazanovAlexandr.dll
+E:\Programms\Hometask_17.01_KazanovAlexandr\bin\Debug\net7.0\Hometask_17.01_KazanovAlexandr.pdb
+E:\Programms\Hometask_17.01_KazanovAlexandr\bin\Debug\net7.0\Newtonsoft.Json.dll
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.csproj.AssemblyReference.cache
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.AssemblyInfoInputs.cache
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.AssemblyInfo.cs
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.csproj.CoreCompileInputs.cache
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.csproj.CopyComplete
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.dll
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\refint\Hometask_17.01_KazanovAlexandr.dll
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.pdb
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\Hometask_17.01_KazanovAlexandr.genruntimeconfig.cache
+E:\Programms\Hometask_17.01_KazanovAlexandr\obj\Debug\net7.0\ref\Hometask_17.01_KazanovAlexandr.dll
