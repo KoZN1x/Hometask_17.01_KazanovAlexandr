@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Hometask_17._01_KazanovAlexandr
@@ -23,15 +25,26 @@ namespace Hometask_17._01_KazanovAlexandr
             {
                 string jsonPath = JsonFile(ListOfFiles("E:\\Programms\\Hometask_17.01_KazanovAlexandr\\Files"));
                 StreamReader streamReader = new StreamReader(jsonPath);
-                object? squad1 = jsonSerializer.Deserialize(streamReader, typeof(Squad));
-                streamReader.Dispose();
+                //object? squad1 = jsonSerializer.Deserialize(streamReader, typeof(Squad));
+                //streamReader.Dispose();
+                string json = streamReader.ReadToEnd();
+                string[] classFields = json.Split(',');
+                var dictionary = new Dictionary<string, string>();
+                foreach (string classField in classFields)
+                {
+                    string[] classFieldSplit = classField.Split(':');
+                    dictionary.Add(StringClearer(classFieldSplit[0]), StringClearer(classFieldSplit[1]));
+                }
+                string[] fieldValues = FieldValues(dictionary);
+                var squad1 = new Squad(fieldValues[0], fieldValues[1], int.Parse(fieldValues[2]));
 
-#pragma warning disable SYSLIB0011
+
                 using (Stream stream = new FileStream("squadName.bin", FileMode.Create, FileAccess.Write, FileShare.None))
                 {
-                    formatter.Serialize(stream, squad1);
-                }
 #pragma warning disable SYSLIB0011
+                    formatter.Serialize(stream, squad1);
+#pragma warning restore SYSLIB0011
+                }
             }
             catch (Exception ex)
             {
@@ -63,6 +76,36 @@ namespace Hometask_17._01_KazanovAlexandr
                     throw new Exception("Error! Can't find correct json file!");
                 }
                 else return jsonFiles[0];
+            }
+
+            static string StringClearer(string str)
+            {
+                var sb = new StringBuilder();
+                foreach (var ch in str)
+                {
+                    if (char.IsLetter(ch) || char.IsDigit(ch))
+                    {
+                        sb.Append(ch);
+                    }
+                }
+                return sb.ToString();
+            }
+
+            static string[] FieldValues(Dictionary <string,string> dictionary)
+            {
+                var type = typeof(Squad);
+                string[] fieldValues = new string[dictionary.Count];
+                int i = 0;
+                foreach (var prop in type.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static))
+                {
+
+                    if (dictionary.ContainsKey(prop.Name))
+                    {
+                        fieldValues[i] = dictionary[prop.Name];
+                        i++;
+                    }
+                }
+                return fieldValues;
             }
         }
         [Serializable]
