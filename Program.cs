@@ -13,9 +13,7 @@ namespace Hometask_17._01_KazanovAlexandr
         static void Main(string[] args)
         {
             var squad = new Squad("Alfa", ".NET", 12);
-            IFormatter formatter = new BinaryFormatter();
             JsonSerializer jsonSerializer = new JsonSerializer();
-
             using (StreamWriter stream = new StreamWriter("squad.json"))
             {
                 jsonSerializer.Serialize(stream, squad);
@@ -38,7 +36,7 @@ namespace Hometask_17._01_KazanovAlexandr
                 string[] fieldValues = FieldValues(dictionary);
                 var squad1 = new Squad(fieldValues[0], fieldValues[1], int.Parse(fieldValues[2]));
 
-
+                IFormatter formatter = new BinaryFormatter();
                 using (Stream stream = new FileStream("squadName.bin", FileMode.Create, FileAccess.Write, FileShare.None))
                 {
 #pragma warning disable SYSLIB0011
@@ -98,7 +96,6 @@ namespace Hometask_17._01_KazanovAlexandr
                 int i = 0;
                 foreach (var prop in type.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static))
                 {
-
                     if (dictionary.ContainsKey(prop.Name))
                     {
                         fieldValues[i] = dictionary[prop.Name];
@@ -108,6 +105,7 @@ namespace Hometask_17._01_KazanovAlexandr
                 return fieldValues;
             }
         }
+
         [Serializable]
         [DataContract]
         public class Squad
