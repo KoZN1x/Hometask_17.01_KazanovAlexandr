@@ -21,7 +21,7 @@ namespace Hometask_17._01_KazanovAlexandr
 
             try
             {
-                string jsonPath = JsonFile(ListOfFiles("E:\\Programms\\Hometask_17.01_KazanovAlexandr\\Files"));
+                string jsonPath = GetJsonFile(GetListOfFiles("E:\\Programms\\Hometask_17.01_KazanovAlexandr\\Files"));
                 StreamReader streamReader = new StreamReader(jsonPath);
                 //object? squad1 = jsonSerializer.Deserialize(streamReader, typeof(Squad));
                 //streamReader.Dispose();
@@ -33,7 +33,7 @@ namespace Hometask_17._01_KazanovAlexandr
                     string[] classFieldSplit = classField.Split(':');
                     dictionary.Add(StringClearer(classFieldSplit[0]), StringClearer(classFieldSplit[1]));
                 }
-                string[] fieldValues = FieldValues(dictionary);
+                string[] fieldValues = GetFieldValues(dictionary);
                 var squad1 = new Squad(fieldValues[0], fieldValues[1], int.Parse(fieldValues[2]));
 
                 IFormatter formatter = new BinaryFormatter();
@@ -49,7 +49,7 @@ namespace Hometask_17._01_KazanovAlexandr
                 Console.WriteLine(ex.Message);
             }
 
-            static List<string> ListOfFiles(string path)
+            static List<string> GetListOfFiles(string path)
                 {
                     var files = new List<string>();
                     foreach (var file in Directory.GetFiles(path))
@@ -59,7 +59,7 @@ namespace Hometask_17._01_KazanovAlexandr
                     return files;
                 }
 
-            static string JsonFile(List<string> files)
+            static string GetJsonFile(List<string> files)
             {
                 var jsonFiles = new List<string>();
                 foreach (var file in files)
@@ -89,7 +89,7 @@ namespace Hometask_17._01_KazanovAlexandr
                 return sb.ToString();
             }
 
-            static string[] FieldValues(Dictionary <string,string> dictionary)
+            static string[] GetFieldValues(Dictionary <string,string> dictionary)
             {
                 var type = typeof(Squad);
                 string[] fieldValues = new string[dictionary.Count];
